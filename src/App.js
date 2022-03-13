@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import NormalCalculator from './components/NormalCalculator'
 import ClassicCalculator from './components/ClassicCalculator'
 import Swal from 'sweetalert2'
+const url ='http://localhost:4005'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
   }, [state])
 
   const getResponse = () => {
-    fetch(`http://d384-2806-261-2400-1b40-35d2-fcd4-6b63-e706.ngrok.io/api/fibonacci/${number}`)
+    fetch(`${url}/api/fibonacci/${number}`)
     .then(data => data.json())
     .then(data => setResult(data.result))
     .catch(err => Swal.fire({
